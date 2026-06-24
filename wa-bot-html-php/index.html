@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Bot AI WhatsApp</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .chat-container { width: 100%; max-width: 500px; background: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); overflow: hidden; }
+        .chat-header { background: #075e54; color: white; padding: 15px; font-size: 18px; font-weight: bold; text-align: center; }
+        .chat-box { height: 350px; padding: 15px; overflow-y: auto; background: #efeae2; display: flex; flex-direction: column; gap: 10px; }
+        .message { padding: 10px 15px; border-radius: 8px; max-width: 75%; font-size: 14px; line-height: 1.4; }
+        .user { background: #d9fdd3; align-self: flex-end; }
+        .bot { background: white; align-self: flex-start; }
+        .chat-input-area { padding: 10px; background: #f0f2f5; display: flex; gap: 10px; }
+        .chat-input-area input { flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 20px; outline: none; }
+        .chat-input-area button { background: #00a884; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+        .chat-input-area button:hover { background: #008f72; }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">🤖 WhatsApp AI Bot Dashboard</div>
+    <div class="chat-box" id="chatBox">
+        <div class="message bot">Halo! Ada yang bisa bot AI bantu hari ini?</div>
+    </div>
+    <div class="chat-input-area">
+        <input type="text" id="inputPesan" placeholder="Ketik pesan di sini..." onkeypress="handleKeyPress(event)">
+        <button onclick="kirimPesan()">Kirim</button>
+    </div>
+</div>
+
+<script>
+    const chatBox = document.getElementById('chatBox');
+    const inputPesan = document.getElementById('inputPesan');
+
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') kirimPesan();
+    }
+
+    function kirimPesan() {
+        const teks = inputPesan.value.trim();
+        if (!teks) return;
+
+        // 1. Tampilkan pesan user ke layar
+        tampilkanPesan(teks, 'user');
+        inputPesan.value = '';
+
+        // 2. Kirim ke Backend Node.js di port 3000
+        fetch('http://localhost:3000/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ pesan: teks })
+        })
+        .then(res => res.json())
+        .then(data => {
+            // 3. Tampilkan balasan dari Bot AI
+            tampilkanPesan(data.balasan, 'bot');
+        })
+        .catch(err => {
+            console.error(err);
+            tampilkanPesan('❌ Gagal terhubung ke server Bot.', 'bot');
+        });
+    }
+
+    function tampilkanPesan(teks, pengirim) {
+        const msgDiv = document.createElement('div');
+        msgDiv.classList.add('message', pengirim);
+        msgDiv.innerText = teks;
+        chatBox.appendChild(msgDiv);
+        chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll ke bawah
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Elegan</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons for elegant iconography -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+        }
+        .gradient-btn {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+        .gradient-btn:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+    </style>
+</head>
+<body class="bg-[#0b0f19] text-slate-200 min-h-screen overflow-y-auto selection:bg-blue-500/30">
+
+    <!-- KOMPONEN NOTIFIKASI (TOAST) -->
+    <div id="toast" class="fixed top-5 right-5 z-50 transform translate-x-full opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 bg-slate-900 border px-5 py-4 rounded-2xl shadow-2xl max-w-sm">
+        <div id="toast-icon-box" class="p-2 rounded-xl">
+            <i id="toast-icon" data-lucide="check-circle" class="w-5 h-5"></i>
+        </div>
+        <div>
+            <p id="toast-title" class="text-sm font-semibold text-white"></p>
+            <p id="toast-desc" class="text-xs text-slate-400 mt-0.5"></p>
+        </div>
+    </div>
+
+    <!-- Wrapper Relatif -->
+    <div class="relative w-full min-h-screen flex items-center justify-center py-20 px-4">
+        
+        <!-- Efek Aura Glow -->
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <!-- Container Utama -->
+        <section class="w-full max-w-5xl mx-auto z-10">
+            <!-- Judul Section -->
+            <div class="text-center max-w-xl mx-auto mb-16">
+                <span class="text-sm font-semibold tracking-widest text-blue-400 uppercase">Hubungi Saya</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 tracking-tight">Mari Mulai Sesuatu yang Hebat</h2>
+                <p class="text-slate-400 mt-4 text-sm md:text-base leading-relaxed">
+                    Punya ide proyek, pertanyaan, atau sekadar ingin menyapa? Silakan kirimkan pesan Anda atau hubungi saya langsung melalui platform di bawah ini.
+                </p>
+            </div>
+
+            <!-- Grid Tata Letak -->
+            <div class="grid lg:grid-cols-5 gap-8 items-stretch">
+                
+                <!-- Kolom Kiri: Informasi Kontak -->
+                <div class="lg:col-span-2 flex flex-col justify-between gap-8 bg-slate-900/40 border border-white/5 p-8 rounded-3xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-white tracking-wide">Informasi Kontak</h3>
+                            <p class="text-slate-400 text-xs mt-1">Saya biasanya merespons dalam waktu kurang dari 24 jam.</p>
+                        </div>
+
+                        <div class="space-y-5">
+                            <!-- Email -->
+                            <div class="flex items-center gap-4 group">
+                                <div class="p-3.5 bg-blue-500/10 text-blue-400 rounded-2xl group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 shadow-sm">
+                                    <i data-lucide="mail" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[11px] uppercase tracking-wider font-semibold text-slate-500">Kirim Email</p>
+                                    <a href="mailto:misbahulanamsidiq5@gmail.com" class="text-sm text-slate-300 hover:text-blue-400 transition-colors">misbahulanamsidiq5@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <!-- WhatsApp -->
+                            <div class="flex items-center gap-4 group">
+                                <div class="p-3.5 bg-emerald-500/10 text-emerald-400 rounded-2xl group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300 shadow-sm">
+                                    <i data-lucide="phone" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[11px] uppercase tracking-wider font-semibold text-slate-500">WhatsApp / Telp</p>
+                                    <a href="https://wa.me/6285697587484" target="_blank" class="text-sm text-slate-300 hover:text-emerald-400 transition-colors">+62 856-9758-7484</a>
+                                </div>
+                            </div>
+
+                            <!-- Lokasi -->
+                            <div class="flex items-center gap-4 group">
+                                <div class="p-3.5 bg-purple-500/10 text-purple-400 rounded-2xl group-hover:bg-purple-500 group-hover:text-white transition-all duration-300 shadow-sm">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[11px] uppercase tracking-wider font-semibold text-slate-500">Lokasi Saat Ini</p>
+                                    <p class="text-sm text-slate-300">Depok, Indonesia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sosial Media -->
+                    <div class="pt-6 border-t border-white/5">
+                        <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Ikuti Media Sosial</p>
+                        <div class="flex flex-wrap gap-3">
+                            <!-- GitHub -->
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" 
+                               class="p-3 bg-slate-950/40 hover:bg-blue-500/20 rounded-xl border border-white/5 hover:border-blue-500/30 text-slate-400 hover:text-blue-400 transition-all duration-300" 
+                               title="GitHub">
+                                <i data-lucide="github" class="w-4 h-4"></i>
+                            </a>
+                            
+                            <!-- Instagram -->
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" 
+                               class="p-3 bg-slate-950/40 hover:bg-purple-500/20 rounded-xl border border-white/5 hover:border-purple-500/30 text-slate-400 hover:text-purple-400 transition-all duration-300" 
+                               title="Instagram">
+                                <i data-lucide="instagram" class="w-4 h-4"></i>
+                            </a>
+                            
+                            <!-- LinkedIn -->
+                            <a href="#" target="_blank" rel="noopener noreferrer" 
+                               class="p-3 bg-slate-950/40 hover:bg-blue-600/20 rounded-xl border border-white/5 hover:border-blue-600/30 text-slate-400 hover:text-blue-500 transition-all duration-300" 
+                               title="LinkedIn">
+                                <i data-lucide="linkedin" class="w-4 h-4"></i>
+                            </a>
+
+                            <!-- WhatsApp Chat Direct -->
+                            <a href="https://wa.me/6285697587484" target="_blank" rel="noopener noreferrer" 
+                               class="p-3 bg-slate-950/40 hover:bg-emerald-500/20 rounded-xl border border-white/5 hover:border-emerald-500/30 text-slate-400 hover:text-emerald-400 transition-all duration-300" 
+                               title="WhatsApp">
+                                <i data-lucide="message-square" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Formulir Pesan -->
+                <div class="lg:col-span-3 glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden">
+                    <form id="contact-form" class="space-y-6">
+                        <!-- Token Web3Forms (Ganti 'YOUR_ACCESS_KEY_HERE' dengan token Anda) -->
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Input Nama -->
+                            <div class="space-y-2">
+                                <label class="text-xs font-medium text-slate-400 uppercase tracking-wider">Nama Anda</label>
+                                <input type="text" name="name" required placeholder="Masukkan nama lengkap" 
+                                    class="w-full bg-slate-950/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/10 transition duration-200">
+                            </div>
+                            <!-- Input Email -->
+                            <div class="space-y-2">
+                                <label class="text-xs font-medium text-slate-400 uppercase tracking-wider">Alamat Email</label>
+                                <input type="email" name="email" required placeholder="nama@email.com" 
+                                    class="w-full bg-slate-950/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/10 transition duration-200">
+                            </div>
+                        </div>
+
+                        <!-- Input Subjek -->
+                        <div class="space-y-2">
+                            <label class="text-xs font-medium text-slate-400 uppercase tracking-wider">Subjek</label>
+                            <input type="text" name="subject" required placeholder="Apa topik obrolan kita?" 
+                                class="w-full bg-slate-950/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/10 transition duration-200">
+                        </div>
+
+                        <!-- Input Pesan -->
+                        <div class="space-y-2">
+                            <label class="text-xs font-medium text-slate-400 uppercase tracking-wider">Pesan Detail</label>
+                            <textarea name="message" required rows="4" placeholder="Tuliskan gagasan, pertanyaan, atau detail proyek Anda di sini..." 
+                                class="w-full bg-slate-950/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/10 transition duration-200 resize-none"></textarea>
+                        </div>
+
+                        <!-- Tombol Submit -->
+                        <button type="submit" id="submit-btn"
+                            class="w-full gradient-btn text-white font-medium py-4 px-6 rounded-xl transition duration-300 shadow-xl shadow-blue-500/10 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed">
+                            <span id="btn-text">Kirim Pesan Sekarang</span>
+                            <div id="btn-loader" class="hidden w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                            <i id="btn-icon" data-lucide="send" class="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition duration-200"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Inisialisasi Ikon Lucide
+        lucide.createIcons();
+
+        // Logika Pengiriman Form dan Notifikasi Toast
+        const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnLoader = document.getElementById('btn-loader');
+        const btnIcon = document.getElementById('btn-icon');
+        
+        const toast = document.getElementById('toast');
+        const toastIconBox = document.getElementById('toast-icon-box');
+        const toastIcon = document.getElementById('toast-icon');
+        const toastTitle = document.getElementById('toast-title');
+        const toastDesc = document.getElementById('toast-desc');
+
+        function showNotification(success, title, description) {
+            // Atur gaya toast berdasarkan status sukses/gagal
+            if (success) {
+                toast.classList.remove('border-red-500/30');
+                toast.classList.add('border-emerald-500/30');
+                toastIconBox.className = "p-2 rounded-xl bg-emerald-500/10 text-emerald-400";
+                toastIcon.setAttribute('data-lucide', 'check-circle');
+            } else {
+                toast.classList.remove('border-emerald-500/30');
+                toast.classList.add('border-red-500/30');
+                toastIconBox.className = "p-2 rounded-xl bg-red-500/10 text-red-400";
+                toastIcon.setAttribute('data-lucide', 'alert-triangle');
+            }
+            
+            toastTitle.textContent = title;
+            toastDesc.textContent = description;
+            
+            // Render ulang ikon khusus toast
+            lucide.createIcons({ attrs: { class: 'w-5 h-5' } });
+
+            // Animasikan Masuk
+            toast.classList.remove('translate-x-full', 'opacity-0');
+            toast.classList.add('translate-x-0', 'opacity-100');
+
+            // Sembunyikan setelah 4 detik
+            setTimeout(() => {
+                toast.classList.remove('translate-x-0', 'opacity-100');
+                toast.classList.add('translate-x-full', 'opacity-0');
+            }, 4000);
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Loading State (Tombol Berputar)
+            submitBtn.disabled = true;
+            btnText.textContent = "Sedang Mengirim...";
+            btnLoader.classList.remove('hidden');
+            btnIcon.classList.add('hidden');
+
+            const formData = new FormData(form);
+
+            // Kirim data menggunakan Fetch API ke Web3Forms
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    showNotification(true, "Pesan Terkirim!", "Terima kasih, saya akan segera menghubungi Anda.");
+                    form.reset(); // Reset form jika berhasil
+                } else {
+                    showNotification(false, "Gagal Mengirim", json.message || "Terjadi kesalahan, silakan coba lagi.");
+                }
+            })
+            .catch(error => {
+                showNotification(false, "Kesalahan Jaringan", "Periksa koneksi internet Anda lalu coba lagi.");
+            })
+            .then(() => {
+                // Kembalikan Tombol ke State Normal
+                submitBtn.disabled = false;
+                btnText.textContent = "Kirim Pesan Sekarang";
+                btnLoader.classList.add('hidden');
+                btnIcon.classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

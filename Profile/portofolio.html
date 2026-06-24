@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misbah | Web Developer & Cyber Security Portfolio</title>
+    <style>
+        /* CSS Reset & Variable */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-dark: #e10404b8;
+            --bg-card: #1a1212;
+            --primary: #e63946;
+            --primary-hover: #ff4d5a;
+            --border-color: rgba(230, 57, 70, 0.2);
+            --text-main: #f5f5f7;
+            --text-muted: #a0a0ab;
+            --font-serif: 'Times New Roman', serif;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Top Header Banner */
+        .header-banner {
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #2b0b0d 0%, #120506 100%);
+            border-bottom: 3px solid var(--primary);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-banner h1 {
+            font-size: 28pt;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .header-banner h1 span {
+            color: var(--primary);
+        }
+
+        .header-banner p {
+            font-size: 12pt;
+            color: var(--text-muted);
+        }
+
+        .badge-status {
+            background-color: rgba(230, 57, 70, 0.1);
+            color: var(--primary-hover);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 9.5pt;
+            font-weight: 600;
+        }
+
+        /* Section Typography */
+        h2 {
+            font-size: 15pt;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .intro-text {
+            color: #e2e2e9;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        /* Project Card */
+        .project-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            background-color: #261a1a;
+        }
+
+        .project-title {
+            font-size: 13pt;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 10.5pt;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Tags */
+        .tag-container {
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 8.5pt;
+            font-weight: 600;
+            background-color: rgba(230, 57, 70, 0.08);
+            color: #ff6b76;
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(230, 57, 70, 0.15);
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        /* Math/Logic Notation Styling */
+        .math {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: bold;
+            color: #ff6b76;
+        }
+
+        .equation-box {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 12pt;
+            background-color: rgba(230, 57, 70, 0.03);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px dashed rgba(230, 57, 70, 0.2);
+        }
+
+        /* Tech Stack Layout */
+        .grid-skills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .skills-col {
+            background-color: var(--bg-card);
+            padding: 20px;
+            border: 1px solid rgba(230, 57, 70, 0.1);
+            border-radius: 6px;
+        }
+
+        .skills-category {
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        /* Footer */
+        .footer-info {
+            margin-top: 50px;
+            border-top: 1px solid rgba(230, 57, 70, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 9pt;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Banner -->
+        <div class="header-banner">
+            <div>
+                <h1>Misbah<span>.</span></h1>
+                <p>Web Developer & Designer </p>
+            </div>
+            <div>
+                <span class="badge-status">Tersedia untuk Project 2026</span>
+            </div>
+        </div>
+
+        <!-- Intro -->
+        <p class="intro-text">
+            Halo! Saya Misbah, seorang Full-Stack Web Developer yang berfokus pada integrasi keamanan data dan kriptografi dalam aplikasi modern. Saya memadukan estetika visual yang elegan dengan arsitektur kode yang kokoh untuk menciptakan platform digital yang aman dari berbagai celah kerentanan cyber.
+        </p>
+
+        <!-- Projects -->
+        <h2>Unggulan Aplikasi Web</h2>
+        <div class="project-card">
+            <div class="project-title">CryptoStego Labs Website App</div>
+            <div class="project-desc">
+                Sebuah aplikasi web interaktif premium yang dirancang untuk melakukan penyembunyian data tekstual sensitif ke dalam berkas citra digital secara real-time. Menggunakan teknik manipulasi piksel langsung pada sisi klien tanpa merusak integritas estetika visual dari gambar penampung.
+            </div>
+            <div class="tag-container">
+                <span class="tag">Full-Stack Web</span>
+                <span class="tag">Cryptography</span>
+                <span class="tag">Pixel Manipulation</span>
+                <span class="tag">HTML5 Canvas</span>
+            </div>
+        </div>
+
+        <!-- Logic & Science Section -->
+        <h2>Implementasi Logika</h2>
+        <p class="intro-text">
+            Aplikasi steganografi ini bekerja dengan menyisipkan bit-bit pesan rahasia ke dalam komponen warna terkecil dari gambar menggunakan pendekatan penataan bit paling tidak signifikan (LSB). Proses pemetaan modifikasi nilai piksel <span class="math">P'</span> dari nilai asli <span class="math">P</span> dengan bit rahasia <span class="math">B</span> direpresentasikan melalui rumus berikut:
+        </p>
+        
+        <div class="equation-box">
+            <span class="math">P' = (P & 254) | B</span>
+        </div>
+
+        <p class="intro-text">
+            Melalui logika di atas, setiap perubahan warna pada tingkat bit biner gambar penampung (<span class="math">ΔP ≤ 1</span>) tidak akan mampu dideteksi oleh mata manusia telanjang, sehingga menjamin keamanan data yang elegan.
+        </p>
+
+        <!-- Tech Stack -->
+        <h2>Keahlian Teknis (Tech Stack)</h2>
+        <div class="grid-skills">
+            <div class="skills-col">
+                <div class="skills-col-inner">
+                    <div class="skills-category">Core Development</div>
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3 / Tailwind</span>
+                    <span class="tag">JavaScript (ES6+)</span>
+                    <span class="tag">Node.js</span>
+                </div>
+            </div>
+            <div class="skills-col">
+                <div class="skills-col-inner">
+                    <div class="skills-category">Security & Data</div>
+                    <span class="tag">LSB Steganography</span>
+                    <span class="tag">AES Encryption</span>
+                    <span class="tag">Secure API Design</span>
+                    <span class="tag">Data Privacy</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <h2><a href="http://wa.me//085697587484" target="_blank">Hubungi SAYA</a></h2>
+   
+        <div class="project-card" style="border-style: dashed; background-color: rgba(230, 57, 70, 0.02); text-align: center;">
+            <p class="project-desc" style="margin-bottom: 0; color: #ffffff;">
+                Tertarik untuk berkolaborasi atau membangun sistem web aman bersama?<br>
+                <strong style="color: var(--primary-hover); font-size: 11pt; display: inline-block; margin-top: 10px;">misbahulanamsidiq5@gmail.com &bull; Depok Jawa Barat, Indonesia</strong>
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-info">
+            &copy; 2026 Misbah Portfolio, Designed and developer MISBAHUL ANAM SIDIQ.
+        </div>
+    </div>
+
+</body>
+</html> 
